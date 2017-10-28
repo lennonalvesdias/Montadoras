@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "Montadoras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Razão Social</th>
+                <th>Nome Fantasia</th>
+                <th>Nacionalidade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var montadora in ViewBag.Montadoras)
+            {
+                <tr>
+                    <td>@montadora.RazaoSocial</td>
+                    <td>@montadora.NomeFantasia</td>
+                    <td>@montadora.Nacionalidade</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" href="@Url.Action("Formulario", new {codigo = @montadora.Codigo})">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="@Url.Action("Remover", new {codigo = @montadora.Codigo})">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>        
+    </table>
+</div>
+
+<div class="row">
+    <p> <a href="@Url.Action("Formulario")">Cadastrar nova montadora</a> </p>
+</div>

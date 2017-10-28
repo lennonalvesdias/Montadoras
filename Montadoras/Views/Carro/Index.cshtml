@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Carros";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="row">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Modelo</th>
+                <th>Blindagem</th>
+                <th>Portas</th>
+                <th>Cor</th>
+                <th>Tipo de Veículo</th>
+                <th>Tipo de Combustível</th>
+                <th>Tipo de Câmbio</th>
+                <th>Montadora</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var carro in ViewBag.Carros)
+            {
+                <tr>
+                    <td>@carro.Modelo</td>
+                    <td>@carro.Blindagem</td>
+                    <td>@carro.Portas</td>
+                    <td>@carro.Cor</td>
+                    <td>@carro.TipoVeiculo</td>
+                    <td>@carro.TipoCombustivel</td>
+                    <td>@carro.TipoCambio</td>
+                    <td>@carro.Montadora.NomeFantasia</td>
+                    <td>
+                        <a class="btn btn-warning btn-sm" href="@Url.Action("Formulario", new {codigo = @carro.Codigo})">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-danger btn-sm" href="@Url.Action("Remover", new {codigo = @carro.Codigo})">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="row">
+    <p> <a href="@Url.Action("Formulario")">Cadastrar novo carro</a> </p>
+</div>

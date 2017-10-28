@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Formulario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cadastro de Montadoras</h2>
+
+<form action="/Montadora/Salvar" method="post">
+    <input id="codigo" type="hidden" name="montadora.Codigo" value="@ViewBag.Montadora.Codigo" class="form-control" />
+
+    <label for="razaoSocial">Razão Social:</label>
+    <input id="razaoSocial" name="montadora.RazaoSocial" value="@ViewBag.Montadora.RazaoSocial" class="form-control" />
+
+    <label for="nomeFantasia">Nome Fantasia:</label>
+    <input id="nomeFantasia" name="montadora.NomeFantasia" value="@ViewBag.Montadora.NomeFantasia" class="form-control" />
+
+    <label for="nacionalidade">Nacionalidade:</label>
+    <input id="nacionalidade" name="montadora.Nacionalidade" value="@ViewBag.Montadora.Nacionalidade" class="form-control" />
+
+    <input type="submit" value="Cadastrar" class="btn btn-primary" />
+</form>
